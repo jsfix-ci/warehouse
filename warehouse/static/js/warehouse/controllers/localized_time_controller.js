@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 import { Controller } from "stimulus";
-import distanceInWordsToNow from "date-fns/distance_in_words_to_now";
+import distanceInWordsToNow from "date-fns/formatDistanceToNow";
 import format from "date-fns/format";
 
 export default class extends Controller {
