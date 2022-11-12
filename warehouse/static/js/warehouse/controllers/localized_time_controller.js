@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 import { Controller } from "stimulus";
-import distanceInWordsToNow from "date-fns/distance_in_words_to_now";
+import distanceInWordsToNow from "date-fns/formatDIstanceToNow";
 import format from "date-fns/format";
 
 export default class extends Controller {
@@ -40,7 +40,9 @@ export default class extends Controller {
     const options = { month: "short", day: "numeric", year: "numeric" };
 
     if (isRelative && localTime > startOfDay) {
-      this.element.textContent = distanceInWordsToNow(localTime, {includeSeconds: true}) + " ago";
+      this.element.textContent = /* TODO: JSFIX could not patch the breaking change:
+      Functions now throw RangeError if optional values passed to options are not undefined or have expected values. This change is introduced for consistency with ECMAScript standard library which does the same. */
+      distanceInWordsToNow(localTime, {includeSeconds: true}) + " ago";
     } else {
       if (showTime) {
         this.element.textContent = localTime.toLocaleTimeString(locale, options);
