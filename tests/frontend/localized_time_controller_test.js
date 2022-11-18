@@ -44,7 +44,10 @@ describe("Localized time controller", () => {
       expect(el).toHaveAttribute("title", expectedDate);
       expect(el).toHaveAttribute("aria-label", expectedDate);
       // Expect +00:00 because static tests run in UTC
-      expect(expectedDate.endsWith("(+00:00)")).toBeTruthy();
+      expect(/* TODO: JSFIX could not patch the breaking change:
+      now functions don't accept string arguments, but only numbers or dates.  
+      Suggested fix: The input string should now be parsed beforehand. Use parse or parseISO (if you’re using ISO 8601) to parse your strings. */
+      expectedDate.endsWith("(+00:00)")).toBeTruthy();
     });
   });
 
@@ -78,7 +81,10 @@ describe("Localized time controller", () => {
       expect(el).toHaveAttribute("title", expectedDate);
       expect(el).toHaveAttribute("aria-label", expectedDate);
       // Expect +00:00 because static tests run in UTC
-      expect(expectedDate.endsWith("(+00:00)")).toBeTruthy();
+      expect(/* TODO: JSFIX could not patch the breaking change:
+      now functions don't accept string arguments, but only numbers or dates.  
+      Suggested fix: The input string should now be parsed beforehand. Use parse or parseISO (if you’re using ISO 8601) to parse your strings. */
+      expectedDate.endsWith("(+00:00)")).toBeTruthy();
     });
   });
 });
